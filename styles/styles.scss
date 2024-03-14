@@ -1,0 +1,243 @@
+
+@use 'variaveis';
+@use 'mixins';
+
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// NAV E BOAS-VINDAS
+header {
+    background: variaveis.$gradiente-primario;
+    padding: 2rem;
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;
+        
+        .linha{
+            border-top: 1px solid #000;
+            width: 80%;
+        }
+
+        ul {
+            display: inline-flex;
+            gap: 2rem;
+
+            li{
+                list-style-type: none;
+            }
+            a {
+                text-decoration: none;
+                font-weight: 500;
+                @include mixins.ff-fs-cl(variaveis.$ft-textos, 1rem, variaveis.$gradiente-primario)
+            }
+        }
+
+    }
+
+    #home{
+        max-width: 1040px;
+        @include mixins.margem-central(80%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .textos-home{
+            max-width: 464px;
+            h1{
+                font-size: 42px;
+                color: variaveis.$cor-primaria;
+                margin-bottom: 2rem;
+                font-family: variaveis.$ft-titulos;
+                span{
+                    color: variaveis.$cor-secundaria;
+                }
+            }
+            .btn-main{
+                background: variaveis.$cor-secundaria;
+                color: #fff;
+                border-radius: 40px;
+                border: 0;
+                width: 280px;
+                height: 66px;
+                font-weight: 600;
+                font-size: 1.1rem;
+                font-family: variaveis.$ft-textos;
+            }
+        }
+        .img-home{
+            max-width: 474px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+}
+// NAV E BOAS-VINDAS
+
+// NOSSO ESPAÇO
+#nosso-espaco{
+    @include mixins.margem-central(80%);
+    .detalhes{
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2rem;
+        padding: 2rem 0;
+        .imgs-espaco{
+            max-width: 500px;
+        }
+        .espaco-textos{
+            @extend .imgs-espaco;
+            .titulo{
+                @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.8rem, variaveis.$cor-secundaria); 
+            }
+            .infos{
+                @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
+            }
+            .separador{
+                width: 100%;
+            }
+        }
+    }
+    .detalhes-bloco-2{
+        @extend .detalhes;
+        flex-direction: row-reverse;
+    }
+}
+
+#servico{
+    background: variaveis.$cor-quaternaria;
+    padding: 5rem;
+    .cards{
+        @include mixins.margem-central(80%);
+        display: flex;
+        gap: 1.5rem;
+        .card{
+            background: variaveis.$gradiente-secundario;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 3rem;
+            .card-titulo{
+                @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.6rem, variaveis.$cor-primaria);
+            }
+        }
+    }
+}
+
+
+//Descontos
+#descontos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    h4{
+        @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.6rem, variaveis.$cor-primaria );
+    }
+    p{
+        @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
+    }
+    .input-btn{
+        $largura-input: 790px;
+        width: $largura-input;
+        height: 65px;
+        border: 1px solid variaveis.$cor-secundaria;
+        border-radius: 65px;
+        margin: 0 auto;
+        display: inline-flex;
+        input{
+            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria);
+            width: calc($largura-input * 0.65);
+            border: none;
+            outline: none;
+            margin-left: 2rem;
+        }
+        button{
+            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, white);
+            width: calc($largura-input * 0.35);
+            background: variaveis.$cor-secundaria;
+            border-radius: 0 65px 65px 0;
+            border: none;
+        }
+    }
+}
+
+#contatos{
+    @include mixins.margem-central(80%);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 20px ;
+    .contatos-imgs{
+        max-width: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+        img{
+            width: 100%;
+            &:nth-child(n + 2){width: 47%;}
+        }
+    }
+    .contatos-form  {
+        max-width: 50%;
+        background: variaveis.$gradiente-primario;
+        padding: 2rem 3rem;
+        border-radius: 2rem;
+        .titulo{
+            @include mixins.ff-fs-cl(variaveis.$ft-titulos, 1.9rem, variaveis.$cor-secundaria);    
+        }
+        .infos{
+            @include mixins.ff-fs-cl(variaveis.$ft-textos, 1.2rem, variaveis.$cor-primaria );
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+            align-self: stretch;
+            input{
+                border-radius: 25px;
+                padding: 1rem;
+                border: none;
+            }
+            .form-group{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                label{
+                    @extend .infos;
+                    font-weight: bold;
+                }
+                
+                textarea{
+                    @extend input;
+                }
+            }
+            .btn{
+                @extend input;
+                background: variaveis.$cor-default;
+                margin-top: 2rem;
+                color: #fff;
+                font-size: 1rem;
+                width: 100%;
+                &:hover{
+                    background: variaveis.$cor-secundaria;
+                }
+            }
+        }
+
+    }
+}
+
